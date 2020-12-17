@@ -163,8 +163,8 @@ static CDVUIInAppBrowser* instance = nil;
 			appendUserAgent = userAgent;
 		}else{
 			userAgent = [CDVUserAgentUtil originalUserAgent];
-			overrideUserAgent = [self settingForKey:@"OverrideUserAgent"];
-			appendUserAgent = [self settingForKey:@"AppendUserAgent"];
+			overrideUserAgent = userAgent;//[self settingForKey:@"OverrideUserAgent"];
+			appendUserAgent = userAgent;//[self settingForKey:@"AppendUserAgent"];
 		}
         if(overrideUserAgent){
             userAgent = overrideUserAgent;
