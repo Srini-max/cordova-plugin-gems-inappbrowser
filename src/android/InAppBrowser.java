@@ -263,12 +263,9 @@ public class InAppBrowser extends CordovaPlugin {
             final String url = args.getString(0);
             this.cordova.getActivity().runOnUiThread(new Runnable() {
                 @SuppressLint("NewApi")
-                @Override
-		public void onPermissionRequest(PermissionRequest request) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        request.grant(request.getResources());
-                    }
-                }
+               
+  
+            
 		 @Override
                 public void run() {
                     if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O) {
