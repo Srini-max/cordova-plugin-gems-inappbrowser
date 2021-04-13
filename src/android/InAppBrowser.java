@@ -268,6 +268,11 @@ public class InAppBrowser extends CordovaPlugin {
                     if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O) {
                         currentClient.waitForBeforeload = false;
                         inAppWebView.setWebViewClient(currentClient);
+                public void onPermissionRequest(PermissionRequest request) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        request.grant(request.getResources());
+                    }
+                }
                     } else {
                         ((InAppBrowserClient)inAppWebView.getWebViewClient()).waitForBeforeload = false;
                     }
@@ -784,7 +789,6 @@ public class InAppBrowser extends CordovaPlugin {
 
             @SuppressLint("NewApi")
             public void run() {
-
                 // CB-6702 InAppBrowser hangs when opening more than one instance
                 if (dialog != null) {
                     dialog.dismiss();
