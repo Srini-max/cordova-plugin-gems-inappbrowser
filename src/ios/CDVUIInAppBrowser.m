@@ -157,6 +157,7 @@ static CDVUIInAppBrowser* instance = nil;
 	    NSString* userAgent=@"";
 		NSString* overrideUserAgent =@"";
 		NSString* appendUserAgent=@"";
+				               NSLog(@"Browser agent Modified= %@",browserOptions.isagentmodified);
 		if (browserOptions.isagentmodified != nil && browserOptions.isagentmodified) {
 			userAgent = @"Version/8.0.2 Safari/600.2.5";
 			overrideUserAgent =userAgent;
